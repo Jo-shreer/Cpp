@@ -4,8 +4,76 @@
 - [map](#map)
 - [set](#set)
 - [multimap](#multimap)
-- [set](#set)
+- [multiset](#multiset)
 
+# multiset
+A multiset is an associative container in C++ that stores elements in a sorted order while allowing multiple occurrences of the same element. 
+This makes it different from a regular set, which only allows unique elements.
+
+### Key Features of Multiset:
+Multiple Elements: A multiset can contain multiple instances of the same element.
+Ordered Storage: Elements are stored in sorted order, allowing for efficient retrieval and iteration.
+Automatic Sorting: When elements are inserted, they are automatically placed in the correct order.
+
+### syntax
+```cpp
+std::multiset<int> ms; // Declare a multiset to store integers
+
+// Inserting elements into the multiset, allowing duplicates
+ms.insert(5);
+ms.insert(1);
+ms.insert(5); // Duplicate element
+ms.insert(3);
+ms.insert(2);
+
+// Erase all occurrences of the element '1' from the multiset
+ms.erase(1);
+```
+# example
+```cpp
+#include <iostream> // For input/output operations
+#include <set>      // For using std::multiset
+
+int main() {
+    // Declare a multiset to store integers
+    std::multiset<int> ms;
+
+    // Insert elements into the multiset, allowing duplicates
+    ms.insert(5);
+    ms.insert(1);
+    ms.insert(5); // Duplicate element
+    ms.insert(3);
+    ms.insert(2);
+
+    // Display elements in sorted order
+    std::cout << "Multiset elements:\n";
+    for (const auto& elem : ms) {
+        std::cout << elem << " "; // Print each element
+    }
+    std::cout << "\n"; // New line after displaying elements
+
+    // Count occurrences of a specific element
+    int key = 5; // Element to count
+    std::cout << "Count of " << key << ": " << ms.count(key) << "\n";
+
+    // Erase all occurrences of the element '1' from the multiset
+    ms.erase(1); 
+    std::cout << "Elements after erasing 1:\n";
+    // Display remaining elements
+    for (const auto& elem : ms) {
+        std::cout << elem << " "; // Print each element
+    }
+    std::cout << "\n"; // New line after displaying elements
+
+    return 0; // Indicate successful completion
+}
+```
+
+
+### conclusion
+A multiset is a useful container in C++ when you need to maintain a collection of elements that allows duplicates and requires ordered storage. 
+Its automatic sorting and efficient retrieval make it suitable for various applications where the frequency of elements matters.
+____________________________________________________________________________________________________________________________________________
 # multimap
 A multimap is an associative container in C++ that allows you to store multiple values for a single key.
 
