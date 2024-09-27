@@ -24,6 +24,7 @@ int first = numbers[0];      // accessing elements using []
 int second = numbers.at(1);  // Using at()
 ```
 ### Example Code
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -55,5 +56,6 @@ int main() {
     std::cout << std::endl;
     return 0;
 }
+```
 ______________________________________________________________________________________________________________________________________________________________________________________________________________
 
