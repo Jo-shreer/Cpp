@@ -60,7 +60,7 @@ int main() {
     return 0;
 }
 ```
-# Note
+### Note
 std::multimap is designed to handle scenarios where a single key may correspond to multiple values. 
 This flexibility allows you to store duplicate keys, making it particularly useful for representing one-to-many relationships. 
 For instance, if you wanted to manage multiple email addresses for a single contact or keep a log of events that occur at the same time, a multimap would be the better choice.
