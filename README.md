@@ -2,8 +2,77 @@
 - [vector](#vector)
 - [list](#list)
 - [map](#map)
-- [list](#list)
+- [set](#set)
 
+# set
+a set is part of the Standard Template Library (STL) and represents a collection of unique elements that are sorted automatically. 
+It allows for efficient insertion, deletion, and search operations.
+
+## syntax
+```cpp
+std::set<int> mySet;               // declare a  set of integers
+std::set<std::string> myStringSet; // declare a set of strings
+
+std::set<int> mySet = {1, 2, 3, 4, 5};  //initialize a set
+
+mySet.insert(6); // Adds 6 to the set
+mySet.insert(3); // This will not add 3, since it already exists
+
+mySet.erase(2); // Removes the element 2 from the set
+```
+checking for existence
+```cpp
+if (mySet.find(3) != mySet.end()) {
+    std::cout << "3 is in the set." << std::endl;
+} else {
+    std::cout << "3 is not in the set." << std::endl;
+}
+```
+### Example
+```cpp
+#include <iostream>
+#include <set>
+
+int main() {
+    std::set<int> mySet;
+
+    // Adding elements
+    mySet.insert(3);
+    mySet.insert(1);
+    mySet.insert(4);
+    mySet.insert(1); // Duplicate, will not be added
+
+    // Iterating over the set
+    std::cout << "Elements in the set: ";
+    for (const auto& element : mySet) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+
+    // Removing an element
+    mySet.erase(1);
+    std::cout << "After removing 1: ";
+    for (const auto& element : mySet) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+
+    // Checking for existence
+    if (mySet.find(3) != mySet.end()) {
+        std::cout << "3 is in the set." << std::endl;
+    } else {
+        std::cout << "3 is not in the set." << std::endl;
+    }
+
+    return 0;
+}
+```
+
+
+
+
+
+________________________________________________________________________________________________________________________________________________
 # map
 A map is part of the Standard Template Library (STL) and provides a sorted associative container that stores elements in key-value pairs. 
 Each key must be unique, and the map automatically sorts the keys.
