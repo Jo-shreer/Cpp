@@ -1,13 +1,70 @@
 # STL
 - [vector](vector)
 - [list](list)
+- [map](map)
 - [list](list)
-- [list](list)
 
+# map
+A map is part of the Standard Template Library (STL) and provides a sorted associative container that stores elements in key-value pairs. 
+Each key must be unique, and the map automatically sorts the keys.
 
+### syntax
+```cpp
 
+std::map<int, std::string> myMap; // declaring a map with integer keys and string values
+std::map<std::string, int> ageMap; // declaring a map with string keys and integer values
+
+std::map<std::string, int> ageMap = {   //Initializing a Map
+    {"Alice", 30},
+    {"Bob", 25},
+    {"Charlie", 35}
+};
+
+myMap[1] = "One";          // assing an element using []
+myMap.insert({2, "Two"});  // Using insert()
+
+myMap.erase(1); // Removes the element with key 1
+```
+
+### Example
+```cpp
+
+#include <iostream>
+#include <map>
+
+int main() {
+    std::map<std::string, int> ageMap;
+
+    // Adding elements
+    ageMap["Alice"] = 30;
+    ageMap["Bob"] = 25;
+    ageMap["Charlie"] = 35;
+
+    // Accessing elements
+    std::cout << "Alice's age: " << ageMap["Alice"] << std::endl;
+
+    // Iterating over the map
+    std::cout << "All ages:\n";
+    for (const auto& pair : ageMap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    // Removing an element
+    ageMap.erase("Bob");
+
+    std::cout << "After removing Bob:\n";
+    for (const auto& pair : ageMap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    return 0;
+}
+````
+
+_________________________________________________________________________________________________________________________________________________________________________________________________________
 # list
- list is part of the Standard Template Library (STL) and represents a doubly linked list. It allows for efficient insertion and removal of elements from any position, but accessing elements by index is less 
+ list is part of the Standard Template Library (STL) and represents a doubly linked list. 
+ It allows for efficient insertion and removal of elements from any position, but accessing elements by index is less 
  efficient compared to vectors.
 
  ```cpp
