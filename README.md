@@ -3,7 +3,69 @@
 - [list](#list)
 - [map](#map)
 - [set](#set)
+- [multimap](#multimap)
+- [set](#set)
 
+# multimap
+A multimap is an associative container in C++ that allows you to store multiple values for a single key.
+
+### Syntax
+```cpp
+std::multimap<int, std::string> mm;
+```
+# insertion Key-Value Pairs
+```cpp
+mm.insert({1, "apple"});
+mm.insert({2, "banana"});
+mm.insert({1, "avocado"});
+mm.insert({3, "cherry"});
+mm.insert({2, "blueberry"});
+```
+# Accessing Values for a Specific Key
+```cpp
+int key = 1;
+auto range = mm.equal_range(key);
+std::cout << "\nValues for key " << key << ":\n";
+```
+# example
+```cpp
+#include <iostream>
+#include <map>
+
+int main() {
+    // Creating a multimap
+    std::multimap<int, std::string> mm;
+
+    // Inserting key-value pairs
+    mm.insert({1, "apple"});
+    mm.insert({2, "banana"});
+    mm.insert({1, "avocado"});
+    mm.insert({3, "cherry"});
+    mm.insert({2, "blueberry"});
+
+    // Displaying elements
+    std::cout << "Multimap elements:\n";
+    for (const auto& pair : mm) {
+        std::cout << pair.first << " => " << pair.second << "\n";
+    }
+
+    // Accessing values for a specific key
+    int key = 1;
+    auto range = mm.equal_range(key);
+    std::cout << "\nValues for key " << key << ":\n";
+    for (auto it = range.first; it != range.second; ++it) {
+        std::cout << it->second << "\n";
+    }
+
+    return 0;
+}
+```
+# Note
+std::multimap is designed to handle scenarios where a single key may correspond to multiple values. 
+This flexibility allows you to store duplicate keys, making it particularly useful for representing one-to-many relationships. 
+For instance, if you wanted to manage multiple email addresses for a single contact or keep a log of events that occur at the same time, a multimap would be the better choice.
+
+_________________________________________________________________________________________________________________________________________________________________________________________________________-
 # set
 A set is part of the Standard Template Library (STL) and represents a collection of unique elements that are sorted automatically. 
 It allows for efficient insertion, deletion, and search operations.
