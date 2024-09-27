@@ -5,7 +5,7 @@
 - [set](#set)
 
 # set
-a set is part of the Standard Template Library (STL) and represents a collection of unique elements that are sorted automatically. 
+A set is part of the Standard Template Library (STL) and represents a collection of unique elements that are sorted automatically. 
 It allows for efficient insertion, deletion, and search operations.
 
 ## syntax
