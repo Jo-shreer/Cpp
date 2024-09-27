@@ -65,7 +65,7 @@ std::multimap is designed to handle scenarios where a single key may correspond 
 This flexibility allows you to store duplicate keys, making it particularly useful for representing one-to-many relationships. 
 For instance, if you wanted to manage multiple email addresses for a single contact or keep a log of events that occur at the same time, a multimap would be the better choice.
 
-_________________________________________________________________________________________________________________________________________________________________________________________________________-
+________________________________________________________________________________________________________________________________________________________________________
 # set
 A set is part of the Standard Template Library (STL) and represents a collection of unique elements that are sorted automatically. 
 It allows for efficient insertion, deletion, and search operations.
