@@ -67,10 +67,8 @@ int main() {
     return 0;
 }
 ```
-
-
-
-
+### Note
+Sets are useful when you need to maintain a collection of unique elements and want to perform efficient searches, insertions, and deletions. They automatically sort their elements, and their operations generally have logarithmic time complexity due to their underlying balanced tree structure.
 
 ________________________________________________________________________________________________________________________________________________
 # map
