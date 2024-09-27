@@ -13,7 +13,7 @@ A multimap is an associative container in C++ that allows you to store multiple 
 ```cpp
 std::multimap<int, std::string> mm;
 ```
-# insertion Key-Value Pairs
+### insertion Key-Value Pairs
 ```cpp
 mm.insert({1, "apple"});
 mm.insert({2, "banana"});
@@ -21,13 +21,13 @@ mm.insert({1, "avocado"});
 mm.insert({3, "cherry"});
 mm.insert({2, "blueberry"});
 ```
-# Accessing Values for a Specific Key
+### Accessing Values for a Specific Key
 ```cpp
 int key = 1;
 auto range = mm.equal_range(key);
 std::cout << "\nValues for key " << key << ":\n";
 ```
-# example
+### example
 ```cpp
 #include <iostream>
 #include <map>
