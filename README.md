@@ -116,7 +116,7 @@ int main() {
 Lists are useful when you need frequent insertions and deletions from anywhere in the container.
 However, if you need to access elements by index frequently, consider using vectors instead, as they provide better performance for random access.
 ______________________________________________________________________________________________________________________________________________________________________________________________________________
-# Vector
+# vector
  vector is part of the Standard Template Library (STL) and provides a dynamic array that can grow and shrink in size. 
  It allows you to store elements and provides many useful member functions to manipulate the data.
 
