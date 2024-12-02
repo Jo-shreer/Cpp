@@ -13,10 +13,8 @@ class LinkedList
 {
     private:
     Node* head; 
-
     public:
     LinkedList() : head(nullptr) {}
-
     void append(int value) 
     {
         Node* newNode = new Node(value);  // Create a new node
@@ -33,7 +31,6 @@ class LinkedList
         }
         temp->next = newNode;
     }
-
     // Function to insert a node at the beginning of the list
     void insertAtBeginning(int value) 
     {
@@ -41,7 +38,6 @@ class LinkedList
         newNode->next = head;  // New node points to the current head
         head = newNode;  // New node becomes the new head
     }
-
     // Function to print the entire list
     void printList() const 
     {
@@ -53,7 +49,6 @@ class LinkedList
         }
         cout << endl;
     }
-    
     ~LinkedList() 
     {
         Node* temp;
@@ -73,7 +68,6 @@ int main()
     list.append(20);
     list.append(30);
     list.append(40);
-
     // Print the list
     cout << "Linked List: ";
     list.printList();  // Output: 10 20 30 40
