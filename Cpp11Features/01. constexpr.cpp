@@ -1,5 +1,6 @@
 #include <iostream>
-constexpr int getSquare(int x) {  //constexpr function
+constexpr int getSquare(int x)    //constexpr function
+{  
     return x * x;                 // This will be evaluated at compile time
 }
 
