@@ -45,7 +45,6 @@ class LinkedList
         }
         cout << endl;
     }
-
     ~LinkedList() 
     {
         Node* temp;
