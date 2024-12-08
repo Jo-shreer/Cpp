@@ -5,7 +5,6 @@ struct Node
     Node* next;
     Node(int val) : data(val), next(nullptr) {}
 };
-
 class LinkedList 
 {
 	private:
