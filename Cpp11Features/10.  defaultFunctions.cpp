@@ -1,10 +1,13 @@
+/*
+In C++, the default keyword is used to specify that the compiler should automatically generate the implementation of certain special member functions 
+(like constructors, destructors, and assignment operators) for a class.
+*/
 #include <iostream>
 
 class MyClass {
 public:
     MyClass() = default; // Default constructor
     ~MyClass() = default; // Default destructor
-
     MyClass(const MyClass&) = default; // Default copy constructor
     MyClass& operator=(const MyClass&) = default; // Default assignment operator
 
