@@ -8,25 +8,25 @@ struct Node
 
 class LinkedList 
 {
-	  private:
-    Node* head;
-	  public:
-    LinkedList() : head(nullptr) {}
-    void insertAtEnd(int val) 
-		{
-        Node* newNode = new Node(val);  
-        if (head == nullptr) 
-				{
-            head = newNode;  
-        } 
+	private:
+  Node* head;
+	public:
+  LinkedList() : head(nullptr) {}
+  void insertAtEnd(int val) 
+	{
+      Node* newNode = new Node(val);  
+      if (head == nullptr) 
+			{
+         head = newNode;  
+      } 
 				else
 				{
-            Node* temp = head;
-            while (temp->next != nullptr) 
-						{  
-                temp = temp->next;
-            }
-            temp->next = newNode;  
+          Node* temp = head;
+          while (temp->next != nullptr) 
+					{  
+               temp = temp->next;
+          }
+          temp->next = newNode;  
         }
     }
 
@@ -45,7 +45,6 @@ class LinkedList
         }
         std::cout << "nullptr" << std::endl;  
     }
-
     void reverse() 
 		{
         Node* prev = nullptr;  
@@ -75,20 +74,17 @@ class LinkedList
 				{  
             return;
         }
-
         if (head->next == nullptr) 
 				{ 
             delete head;  
             head = nullptr;
             return;
         }
-
         Node* temp = head;
         while (temp->next != nullptr && temp->next->next != nullptr) 
 				{			
             temp = temp->next;
         }
-
         Node* lastNode = temp->next;
         temp->next = nullptr;
         delete lastNode;
