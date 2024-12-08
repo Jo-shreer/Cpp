@@ -1,39 +1,45 @@
-//copy constructor , Move constructor 
+/*A move constructor in C++ is a special constructor that allows an object to "steal" resources from a temporary object (an rvalue). 
+This avoids deep copying of resources, improving performance,especially when dealing with large objects or resources 
+like dynamically allocated memory, file handles, or other system resources.*/
 
 #include <iostream>
-using namespace std;
 
-class A
+class MyClass 
 {
-    private:
-    int *p;
-    
-    public:
-    A()
+private:
+    int* data; 
+
+public:
+    MyClass(int size) 
     {
-        p = new int[100];
-        cout << "default constructor" << endl;
+        data = new int[size]; 
+        std::cout << "Constructor: Allocating memory of size " << size << std::endl;
     }
-    
-    A(const A &obj)
+    MyClass(MyClass&& other) noexcept : data(other.data) 
     {
-        p = new int[100];
-        for(int i =0; i <100; i++)
-            p[i] = obj.p[i];
-        cout << "copy constructor" << endl;
+        other.data = nullptr;
+        std::cout << "Move Constructor: Transferred resource!" << std::endl;
     }
-    
-    A(const A &&obj) :p(obj.p)
+
+    // Destructor
+    ~MyClass() 
     {
-        cout << "move constructor" << endl;
+        if (data) 
+        {
+            delete[] data;  
+            std::cout << "Destructor: Releasing memory" << std::endl;
+        }
     }
-    
+    void useData() 
+    {
+        std::cout << "Using data..." << std::endl;
+    }
 };
 
-int main()
-{
-    A a;
-    A b = move(a);
-    A c(move(a));
+int main() {
+    MyClass obj1(10);  
+    obj1.useData();
+    MyClass obj2 = std::move(obj1);  // Move constructor is called here
+    obj2.useData(); 
     return 0;
 }
