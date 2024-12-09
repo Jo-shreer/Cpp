@@ -4,7 +4,6 @@ It is often used to decouple the client code from the specific classes that need
 Simple Factory Method in C++
 In a simple implementation of the Factory Method pattern, we can have a factory class with a method that creates and 
 returns objects based on the provided input or configuration.
-
 Let's consider a scenario where we have a Shape interface, and we have concrete classes Circle and Rectangle that implement the Shape interface. 
 The factory class will decide which shape to create based on the provided type.
 */
