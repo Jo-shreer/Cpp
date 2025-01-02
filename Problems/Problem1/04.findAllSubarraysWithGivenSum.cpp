@@ -13,23 +13,23 @@ int findAllSubarraysWithGivenSum(vector < int > & arr, int k)
     
         for (int i = 0; i < n; i++) 
 	{
-        preSum += arr[i];
-        cout <<"preSum:" << preSum << endl;
+        	preSum += arr[i];
+        	cout <<"preSum:" << preSum << endl;
 
-        int remove = preSum - k;			// Calculate x-k:
-        cout << "remove:" << remove << endl;
+        	int remove = preSum - k;			// Calculate x-k:
+        	cout << "remove:" << remove << endl;
 		
-        cnt += mpp[remove];					// Add the number of subarrays to be removed:
-        cout <<"cnt:" << cnt << endl;
-        mpp[preSum] += 1;
+        	cnt += mpp[remove];					// Add the number of subarrays to be removed:
+        	cout <<"cnt:" << cnt << endl;
+        	mpp[preSum] += 1;
 		
-        for (auto value: mpp)
-	{
-            cout <<"value.first:" << value.first << endl;
-            cout <<"value.second:" << value.second << endl;
-        }
-    }
-    return cnt;
+        	for (auto value: mpp)
+		{
+            		cout <<"value.first:" << value.first << endl;
+            		cout <<"value.second:" << value.second << endl;
+        	}
+    	}
+    	return cnt;
 }
 int main()
 {
