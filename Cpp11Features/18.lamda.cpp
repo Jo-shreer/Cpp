@@ -5,6 +5,7 @@ A lambda expression has the following syntax:
 [ captures ] ( parameters ) -> return_type { body }
 
 Components of a Lambda:
+
 Capture Clause ([captures]):
 Captures variables from the surrounding scope that are used inside the lambda.
 You can capture by value, by reference, or a combination of both.
