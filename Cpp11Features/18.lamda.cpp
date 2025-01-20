@@ -2,19 +2,17 @@
 Basic Syntax of Lambda Expressions
 A lambda expression has the following syntax:
 
-cpp
-Copy
 [ captures ] ( parameters ) -> return_type { body }
+
 Components of a Lambda:
 Capture Clause ([captures]):
-
 Captures variables from the surrounding scope that are used inside the lambda.
 You can capture by value, by reference, or a combination of both.
+
 Parameter List ((parameters)):
-
 Similar to a regular function, you specify parameters that the lambda will accept.
-Return Type (-> return_type):
 
+Return Type (-> return_type):
 The return type of the lambda. This part is optional if the compiler can infer it.
 Body ({ body }):
 
