@@ -41,9 +41,12 @@ int main()
 
 #include <iostream>
 
-int main() {
+int main() 
+{
     // Lambda that takes two integers and returns their sum
-    auto add = [](int a, int b) -> int {
+    
+    auto add = [](int a, int b) -> int 
+    {
         return a + b;
     };
 
@@ -55,11 +58,14 @@ int main() {
 
 #include <iostream>
 
-int main() {
+int main() 
+{
     int x = 10;
     
     // Capture 'x' by value (make a copy of 'x')
-    auto capture_by_value = [x]() {
+    
+    auto capture_by_value = [x]() 
+    {
         std::cout << "Captured by value: " << x << std::endl;
     };
 
