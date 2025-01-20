@@ -51,3 +51,19 @@ int main() {
     return 0;
 }
 
+/* Capture by value _______________*/
+
+#include <iostream>
+
+int main() {
+    int x = 10;
+    
+    // Capture 'x' by value (make a copy of 'x')
+    auto capture_by_value = [x]() {
+        std::cout << "Captured by value: " << x << std::endl;
+    };
+
+    capture_by_value();
+    return 0;
+}
+
