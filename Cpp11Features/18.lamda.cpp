@@ -47,7 +47,7 @@ int main() {
         return a + b;
     };
 
-    std::cout << "Sum: " << add(3, 4) << std::endl;
+    add(3, 4);
     return 0;
 }
 
