@@ -1,0 +1,97 @@
+/*GTest (or Google Test) is a C++ testing framework developed by Google, designed for writing unit tests for C++ programs. 
+It provides a rich set of features to facilitate the development of test cases, including test assertions, test fixtures, and various utilities for checking the correctness of code in a C++ application.
+
+Key Features of GTest:
+
+Assertions:
+GTest provides a wide range of assertions to test conditions in your code, such as:
+
+EXPECT_EQ(val1, val2) – Checks that two values are equal.
+ASSERT_EQ(val1, val2) – Similar to EXPECT_EQ, but halts the current test if the assertion fails.
+EXPECT_TRUE(condition) – Checks that a condition is true.
+ASSERT_TRUE(condition) – Like EXPECT_TRUE, but stops the test on failure.
+EXPECT_THROW(statement, exception) – Ensures an exception is thrown during the execution of a statement.
+
+Test Fixtures:
+Test fixtures allow you to set up and tear down code that is shared among multiple test cases. 
+A test fixture is a class that defines SetUp() and TearDown() methods for preparing and cleaning up resources before and after each test.
+Test Suites:
+
+GTest allows organizing test cases into test suites, which can group related tests together. Test suites help structure the testing process and make it easier to run related tests together.
+Mocking Support:
+
+GTest supports mock objects through its integration with Google Mock (a separate library), which is useful for testing code that interacts with external dependencies or complex systems.
+Test Running and Output:
+
+GTest provides a test runner that can execute the tests and report the results in various formats (such as text, XML, and JSON). 
+It also provides the ability to filter tests and run specific ones.
+The test runner outputs the result for each test (whether it passed or failed) and provides detailed information if any tests fail.
+
+Parameterized Tests:
+GTest supports parameterized tests, where the same test can be run multiple times with different input values, enabling more thorough testing.
+
+Death Tests:
+GTest allows you to write "death tests," which test for conditions that should cause a program to abort (for example, when a certain code path results in an exception or crash).
+*/
+
+/*Example of GTest Code:
+cpp
+Copy */
+
+#include <gtest/gtest.h>
+
+// Function to test
+int Add(int a, int b) {
+    return a + b;
+}
+
+// Test case using a simple assertion
+TEST(AdditionTest, PositiveNumbers) {
+    EXPECT_EQ(Add(1, 2), 3);  // Check if 1 + 2 equals 3
+}
+
+TEST(AdditionTest, NegativeNumbers) {
+    EXPECT_EQ(Add(-1, -2), -3);  // Check if -1 + -2 equals -3
+}
+
+TEST(AdditionTest, Zero) {
+    EXPECT_EQ(Add(0, 0), 0);  // Check if 0 + 0 equals 0
+}
+
+// Main function to run all tests
+
+int main(int argc, char **argv) 
+{
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+
+How to Use GTest:
+
+Installation:
+You can install GTest on your system either by building it from source or using package managers (like apt on Linux, brew on macOS, or vcpkg on Windows).
+The source code is available on GitHub: https://github.com/google/googletest
+
+Compiling:
+You need to link your program with the GTest library while compiling your test code. For example, using g++:
+bash
+Copy
+g++ -std=c++11 -lgtest -lgtest_main -pthread your_test_file.cpp -o your_test_program
+
+Running Tests:
+Once compiled, you can run your tests from the command line:
+bash
+Copy
+./your_test_program
+
+/*Advantages of GTest:
+Well-Documented: GTest is widely used and well-documented, with plenty of examples and tutorials available.
+Comprehensive: It supports a wide range of features for unit testing, such as test fixtures, assertions, parameterized tests, and mocks.
+Integration with Build Systems: It works well with build systems like CMake, making it easy to integrate into your C++ projects.
+Cross-Platform: GTest is cross-platform and can be used on various operating systems like Linux, macOS, and Windows.
+
+Summary:
+GTest (Google Test) is a powerful and flexible testing framework for C++ applications. 
+It helps developers write automated unit tests to verify the correctness of their code and provides a range of tools to make testing easier, such as assertions, test fixtures, 
+and a comprehensive test runner.
+*/
