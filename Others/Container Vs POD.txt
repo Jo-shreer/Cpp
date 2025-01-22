@@ -6,11 +6,13 @@ Containers are typically isolated from each other and run a single application o
 They are created and run using container runtimes like Docker or containerd.
 
 Pod:
-A Pod is the smallest deployable unit in Kubernetes, and it can contain one or more containers that are tightly coupled and share the same networking and storage resources.
+A Pod is the smallest deployable unit in Kubernetes.
+It can contain one or more containers that are tightly coupled and share the same networking and storage resources.
 Containers within a Pod can communicate with each other via localhost, share volumes for storage, and share an IP address.
 Pods provide a higher-level abstraction that helps Kubernetes manage the deployment and scaling of containers, ensuring they work together as part of a larger application.
 
 Summary:
+
 Container: A self-contained unit for running a single application or service.
 Pod: A Kubernetes concept that groups multiple containers (usually tightly related) and manages their deployment and scaling.
 In essence, Pods are used in Kubernetes to manage one or more containers, providing a way to group and orchestrate them i
