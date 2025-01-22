@@ -1,0 +1,72 @@
+In computer science, heap and stack refer to two different areas of memory used for storing data. Each has different characteristics and is used for different purposes within a program.
+
+1. Stack:
+The stack is a region of memory that stores data in a last-in, first-out (LIFO) manner. 
+It is used for storing local variables and function call information.
+
+Key Characteristics:
+Memory Allocation: Memory for variables is automatically allocated and deallocated when a function is called and returns, respectively.
+Fast Access: The stack is very fast because memory allocation is done by adjusting the stack pointer.
+Size: The stack typically has a limited size, often much smaller than the heap. A stack overflow occurs when there is too much memory allocated (e.g., deep recursion or allocating large arrays).
+Storage: Stores local variables, function parameters, and return addresses. These are variables that are temporary and live only within the scope of a function call.
+Scope: Stack-allocated variables only exist while the function is executing. Once the function returns, the variables are automatically destroyed.
+
+Example (C++):
+void foo() 
+{
+    int x = 10;  // Stored in the stack
+    int y = 20;  // Stored in the stack
+}
+
+Stack vs. Heap in terms of Memory Usage:
+Stack: Fast allocation/deallocation, limited size, local scope, and usually small.
+Heap: Slower allocation/deallocation, larger size, and used for dynamic memory.
+
+2. Heap:
+The heap is a region of memory used for dynamic memory allocation, where variables are created at runtime.
+Memory on the heap is manually allocated and deallocated by the programmer (e.g., using new/delete in C++ or malloc/free in C).
+
+Key Characteristics:
+Memory Allocation: Memory is allocated manually during runtime using functions like new, malloc, and similar. 
+The programmer must also manually deallocate the memory using delete, free, or similar.
+
+Slower Access: Memory allocation and deallocation on the heap are slower than the stack because the heap is more flexible and requires more bookkeeping.
+Size: The heap is typically much larger than the stack and can grow as needed (limited by system memory).
+Scope: Variables on the heap persist until they are explicitly deallocated, meaning they don't automatically disappear 
+when the function that created them exits.
+
+Example (C++):
+void foo() 
+{
+    int* x = new int(10);  // Allocated in the heap
+    // Do something with x...
+    delete x;  // Free the memory
+}
+
+Key Differences between Stack and Heap:
+
+Feature	Stack	Heap
+Memory Allocation	Automatically done (local variables)	Manually done by the programmer (new, malloc, etc.)
+Memory Deallocation	Automatically (when function exits)	Manually done by the programmer (delete, free, etc.)
+Size	Smaller, limited size	Larger, can grow as needed (system memory limits)
+Speed	Faster due to simple management	Slower due to manual allocation/deallocation
+Scope	Local to function/block	Can persist beyond function scope until explicitly deallocated
+Use Case	Local variables, function call info	Dynamic memory allocation for objects or large data structures
+Lifetime	Tied to the function call or block	Controlled manually, persists until freed
+
+When to Use Stack vs. Heap:
+Stack: Use for small, temporary data that is only needed within the scope of a function. 
+Examples: local variables, function parameters, and return addresses.
+Heap: Use when you need dynamic memory, such as when creating objects whose size is not known at compile time or
+when you need to share data across different parts of the program that outlive a single function call. 
+Examples: large arrays, objects, or dynamically allocated structures.
+
+Example (When to Use Stack or Heap):
+Stack: A function that sums two integers would use the stack for the variables storing the integers and the sum.
+Heap: A program that needs to store a large array whose size isn't known until runtime would allocate memory on the heap.
+
+Summary:
+Stack: Quick memory allocation and deallocation, used for small, temporary data, and has a limited size.
+Heap: Slower, more flexible memory allocation, used for dynamic data that persists beyond function calls, and typically larger in size.
+Both the stack and heap are essential for managing memory in a program, but they serve different purposes and are used in 
+different scenarios based on the lifetime and size of the data being stored.
