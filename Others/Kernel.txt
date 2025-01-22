@@ -1,40 +1,44 @@
-The kernel is the core part of an operating system (OS) that manages the system's resources and provides essential services for other software. It acts as an intermediary between the hardware of a computer and the software applications that use it.
+The kernel is the core part of an operating system (OS) that manages the system's resources and provides essential services for other software. 
+It acts as an intermediary between the hardware of a computer and the software applications that use it.
 
 Key Responsibilities of the Kernel:
-Process Management:
 
+Process Management:
 The kernel is responsible for managing processes (programs in execution), including scheduling tasks, creating, terminating, and managing process states (running, waiting, etc.).
 It handles multitasking, allowing multiple processes to run concurrently by switching between them, which is called context switching.
-Memory Management:
 
+Memory Management:
 It manages the system's memory, including both RAM and virtual memory.
 The kernel allocates memory to processes, handles memory protection to prevent one process from accessing the memory of another, and manages swapping data between RAM and disk storage (if needed).
-Device Management:
 
+Device Management:
 The kernel controls hardware devices (such as disk drives, printers, and network interfaces) via device drivers.
 It abstracts hardware details so software can interact with devices without needing to know the specifics of how they work.
-File System Management:
 
+
+File System Management:
 It provides services for managing files and directories, including creating, reading, writing, and deleting files.
 The kernel ensures that file access is organized and secure, with support for file permissions and hierarchical file structures.
-Security and Access Control:
 
+Security and Access Control:
 The kernel enforces security policies, such as user authentication and authorization.
 It controls access to system resources based on user permissions and helps prevent unauthorized access to sensitive data or system operations.
 System Calls:
 
 The kernel provides an interface for applications to request services from the OS, such as reading from a file, allocating memory, or performing network communication. These requests are made via system calls.
+
+
 Types of Kernels:
 Monolithic Kernel:
-
 A single large kernel that includes many services, such as process management, device drivers, file system management, etc., in one large block of code.
 Examples: Linux, traditional Unix.
+
 Microkernel:
-
-A smaller, more modular kernel that only includes the most essential functions, such as process management and communication between processes, while other services like device drivers are run as separate processes outside the kernel.
+A smaller, more modular kernel that only includes the most essential functions, such as process management and communication between processes, 
+while other services like device drivers are run as separate processes outside the kernel.
 Examples: Minix, QNX.
-Hybrid Kernel:
 
+Hybrid Kernel:
 Combines elements of both monolithic and microkernels, attempting to offer the benefits of both. Some services are in the kernel, while others run in user space.
 Example: Windows NT, macOS.
 Exokernel:
