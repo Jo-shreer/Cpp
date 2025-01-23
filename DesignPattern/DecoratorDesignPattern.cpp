@@ -41,46 +41,52 @@ flexible and maintainable.
 
 class Coffee 
 {
-	public:
-    virtual ~Coffee() = default;
+    public:
     virtual double cost() const = 0;
+    virtual ~Coffee() = default;
 };
 
-class SimpleCoffee : public Coffee {
-public:
-    double cost() const override {
+class SimpleCoffee : public Coffee 
+{
+    public:
+    double cost() const override 
+    {
         return 5.0;
     }
 };
 
 class CoffeeDecorator : public Coffee 
 {
-	protected:
-    Coffee* coffee;
+   protected:
+   Coffee* coffee;
 
-	public:
-    CoffeeDecorator(Coffee* c) : coffee(c) {}
+   public:
+   CoffeeDecorator(Coffee* c) : coffee(c) {}
 
-    double cost() const override {
+    double cost() const override 
+    {
         return coffee->cost();
     }
 };
 
 class MilkDecorator : public CoffeeDecorator 
 {
-	public:
+    public:
     MilkDecorator(Coffee* c) : CoffeeDecorator(c) {}
 
-    double cost() const override {
+    double cost() const override 
+    {
         return CoffeeDecorator::cost() + 2.0;
     }
 };
 
-class SugarDecorator : public CoffeeDecorator {
-public:
+class SugarDecorator : public CoffeeDecorator 
+{
+    public:
     SugarDecorator(Coffee* c) : CoffeeDecorator(c) {}
 
-    double cost() const override {
+    double cost() const override 
+    {
         return CoffeeDecorator::cost() + 1.0;
     }
 };
