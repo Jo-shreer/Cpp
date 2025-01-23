@@ -22,9 +22,9 @@ Feature                                map	                                  uno
 Ordering	                       Sorted (according to the key)	        Unordered (based on hash values)
 Underlying Data Structure	       Balanced Binary Tree (Red-Black Tree).	 Hash Table
 Time Complexity	                       O(log n) for insert, find, delete.    	O(1) on average for insert, find, delete
-Best Use Case	                      When order of keys matters.             When order doesn't matter, and fast lookups are needed.
+Best Use Case	                      When order of keys matters.                When order doesn't matter, and fast lookups are needed.
 Memory Overhead	                      Higher due to tree structure.        	  Lower,but hash table can cause rehashing and 
-                                                                              memory overhead
+                                                                                memory overhead
 Iteration	                      Iterates in sorted order.            	Iterates in undefined order
 Custom Sorting	                     Custom comparison function allowed	    Custom hash function allowed
 
