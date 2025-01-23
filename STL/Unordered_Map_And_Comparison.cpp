@@ -25,7 +25,7 @@ Time Complexity	                       O(log n) for insert, find, delete.    	O(
 Best Use Case	                      When order of keys matters.          When order doesn't matter, and fast lookups are needed.
 Memory Overhead	                      Higher due to tree structure.        	  Lower,but hash table can cause rehashing and 
                                                                               memory overhead
-Iteration	                         Iterates in sorted order.            	Iterates in undefined order
+Iteration	                      Iterates in sorted order.            	Iterates in undefined order
 Custom Sorting	                       Custom comparison function allowed	    Custom hash function allowed
 
 */
