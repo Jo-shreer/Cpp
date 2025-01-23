@@ -17,7 +17,8 @@ class Singleton
 {
     private:
     static Singleton *instance;
-    Singleton() {}
+    Singleton() {}    //private constructor
+
     public:
     Singleton(const Singleton &s) = delete;
     Singleton& operator=(const Singleton &s) = delete;
@@ -35,6 +36,7 @@ class Singleton
     }
     ~Singleton() {}
 };
+
 Singleton* Singleton::instance = nullptr;
 
 int main()
