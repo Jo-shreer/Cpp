@@ -20,7 +20,7 @@ If you want to replace an existing value, you should use the [] operator or empl
 
 Feature                                map	                                  unordered_map
 Ordering	                       Sorted (according to the key)	        Unordered (based on hash values)
-Underlying Data Structure	       Red-Black Tree	                        Hash Table
+Underlying Data Structure	       Balanced Binary Tree (Red-Black Tree).	 Hash Table
 Time Complexity	                       O(log n) for insert, find, delete.    	O(1) on average for insert, find, delete
 Best Use Case	                         When order of keys matters.          When order doesn't matter, and fast lookups are needed.
 Memory Overhead	                     Higher due to tree structure.        	  Lower,but hash table can cause rehashing and 
