@@ -1,5 +1,6 @@
 /*
-A Factory Method is a design pattern that provides an interface for creating objects but allows subclasses to alter the type of objects that will be created.
+A Factory Method is a design pattern that provides an interface for creating objects but allows 
+subclasses to alter the type of objects that will be created.
 It is often used to decouple the client code from the specific classes that need to be instantiated.
 Simple Factory Method in C++
 In a simple implementation of the Factory Method pattern, we can have a factory class with a method that creates and 
