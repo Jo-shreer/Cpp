@@ -1,7 +1,7 @@
-"""
+'''
 Iterators are objects that allow you to traverse through all the elements of a collection.
 #Generators are functions that return an iterable set of items, one at a time, using the yield keyword.
-"""
+'''
 Simple iterator example
 
 numbers = [1, 2, 3]
