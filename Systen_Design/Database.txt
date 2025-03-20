@@ -1,0 +1,75 @@
+1. Relational Databases (RDBMS)
+Type: Structured, tabular data with relationships.
+Best For: Structured data, ACID compliance, strong consistency.
+Examples:
+MySQL (open-source, widely used)
+PostgreSQL (powerful with JSON support)
+Microsoft SQL Server (enterprise use)
+Oracle Database (high performance)
+
+2. NoSQL Databases
+NoSQL databases handle unstructured, semi-structured, and big data efficiently.
+
+a) Document-based Databases
+Type: Store data as JSON-like documents.
+Best For: Flexible schema, hierarchical data, semi-structured data.
+Examples:
+MongoDB (most popular, high scalability)
+CouchDB (JSON documents, distributed)
+
+b) Key-Value Stores
+Type: Store data as key-value pairs (like a dictionary).
+Best For: Fast lookups, caching, session management.
+Examples:
+Redis (in-memory, fast caching)
+DynamoDB (AWS managed NoSQL)
+RocksDB (high-performance)
+
+c) Column-Family Stores
+Type: Data is stored in columns instead of rows.
+Best For: High write scalability, analytics, time-series data.
+Examples:
+Apache Cassandra (distributed, scalable)
+HBase (Hadoop ecosystem)
+
+d) Graph Databases
+Type: Stores data as nodes and relationships.
+Best For: Social networks, recommendation engines.
+Examples:
+Neo4j (most popular graph DB)
+ArangoDB (multi-model)
+
+3. Time-Series Databases
+Type: Optimized for time-stamped data.
+Best For: IoT, monitoring, finance, logging.
+Examples:
+InfluxDB (optimized for time-series)
+TimescaleDB (PostgreSQL extension)
+
+4. Search Databases
+Type: Optimized for full-text search and analytics.
+Best For: Search engines, log analysis.
+Examples:
+Elasticsearch (powerful search engine)
+Solr (Apache Lucene-based)
+
+5. NewSQL Databases
+Type: Combines SQL features with NoSQL scalability.
+Best For: High scalability with ACID transactions.
+Examples:
+Google Spanner (global consistency)
+CockroachDB (distributed SQL)
+
+
+Choosing the Right Database                                                  Requirement	Recommended DB Type	                  Example
+
+Transactions & Strong Consistency	                                           Relational (RDBMS)	                                PostgreSQL, MySQL
+High Scalability & Flexible Schema	                                         NoSQL Document Store	                              MongoDB
+Fast Lookups & Caching	                                                     Key-Value Store	                                  Redis, DynamoDB
+Large-scale Write Operations	                                               Column-Family Store	                              Cassandra
+Relationship-heavy Data	                                                     Graph Database	                                    Neo4j
+Time-based Metrics & IoT	                                                   Time-Series Database	                              InfluxDB
+Text Search & Logs	                                                         Search Database	                                  Elasticsearch
+Scalable SQL	                                                               NewSQL	                                            Google Spanner
+
+
