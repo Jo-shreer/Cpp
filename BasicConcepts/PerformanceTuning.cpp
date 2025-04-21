@@ -7,9 +7,11 @@ void process(string s);        // bad: copy
 
 /*2.Use std::move() for large objects when transferring ownership: 
 */
-string s = "big data";
-vector<string> v;
-v.push_back(move(s));
+string name = "SuperLongName";
+vector<string> names;
+// move instead of copy
+names.push_back(move(name));
+
 
 // 3. Prefer Pre-Allocation
 // Avoid dynamic memory resizing in loops.
@@ -52,6 +54,8 @@ void safeWork() {
 // 3.Algorithm and Complexity
 // This matters more than anything. Example:
 // Inefficient
+// Sorting 1000 elements with O(n log n) sort beats clever optimizations on O(n²) bubble sort.
+// Use STL algorithms like std::sort, std::transform, std::accumulate.
 for (int i = 0; i < n; i++)
     for (int j = 0; j < n; j++)
         sum += a[i] * b[j];
@@ -67,5 +71,33 @@ sort(v.begin(), v.end());  // Fast & optimized
 // Inline small functions	           -Removes call overhead
 // Reduce virtual calls	             -Avoid vtables where possible
 // Use constexpr where possible	     -Compile-time computation
+
+vector<pair<int, string>> v;
+// BAD
+v.push_back(make_pair(1, "hello"));
+// GOOD
+v.emplace_back(1, "hello"); // constructs in-place
+
+string name = "SuperLongName";
+vector<string> names;
+// move instead of copy
+names.push_back(move(name));
+
+//4. Memory & Cache Optimization
+//✅ Prefer contiguous containers
+vector<int> v;   // good for CPU cache
+list<int> l;     // bad for cache locality
+
+//5.Structure of Arrays (SoA) over Array of Structures (AoS)
+// AoS - bad cache usage
+struct Entity { float x, y, z; };
+vector<Entity> entities;
+// SoA - better cache usage
+vector<float> posX, posY, posZ;
+
+
+
+
+
 
   
