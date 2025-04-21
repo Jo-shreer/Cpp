@@ -14,25 +14,20 @@ which could lead to inconsistent or unpredictable results.
 #include <iostream>
 #include <thread>
 #include <mutex>
-std::mutex mtx;  // Create a mutex
+using namespace std;      // Using the std namespace
+mutex mtx;                // Create a mutex
 
 void print_numbers(int id) 
 {
-    std::lock_guard<std::mutex> lock(mtx);  // Lock the mutex automatically
-    std::cout << "Thread " << id << " is accessing shared resource\n";
+    lock_guard<mutex> lock(mtx);  // Lock the mutex automatically
+    cout << "Thread " << id << " is accessing shared resource\n";
 }
 
-int main() 
-{
-    std::thread t1(print_numbers, 1);
-    std::thread t2(print_numbers, 2);
+int main() {
+    thread t1(print_numbers, 1);
+    thread t2(print_numbers, 2);
     t1.join();
     t2.join();
     return 0;
 }
 
-    t1.join();
-    t2.join();
-
-    return 0;
-}
