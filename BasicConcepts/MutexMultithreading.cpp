@@ -62,11 +62,8 @@ int main() {
 /*
 deadlock occurs when two or more threads are waiting on each other to release resources, 
 and none of them can proceed — like a circular wait.
+Fix	 - Use consistent lock order, std::lock
 Simple Code Example (BAD — Causes Deadlock):
-
-Race Condition
-A race condition happens when two or more threads access shared data at the same time, 
-and the final result depends on the timing of how the threads run.
 */
 
 #include <iostream>
