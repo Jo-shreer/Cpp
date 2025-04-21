@@ -55,11 +55,21 @@ int main() {
 
 /***********************************DetachThreads***********************/
 /*What does detach() do?
+detaching a thread means that the thread runs independently from the thread that launched it. 
+The creator thread does not wait for the detached thread to finish.
 It tells the system that the thread's resources should be automatically reclaimed once it finishes execution.
-
 After calling detach(), you no longer have control over the thread — you can't join() it.
+It allows the thread to execute in the background.
 
-It allows the thread to execute in the background.*/
+When to Use detach()
+Use it when:
+You truly want a thread to run in the background, e.g., logging, periodic monitoring, etc.
+You don’t need to synchronize with the thread later.
+
+Good Rule of Thumb:
+If you start a thread, you must either join() or detach() it.
+If you forget to do either, the destructor of the std::thread object will terminate the program (via std::terminate()).
+*/
 
 #include <iostream>
 #include <thread>
@@ -71,7 +81,8 @@ void backgroundTask()
     cout << "Running in background..." << endl;
 }
 
-int main() {
+int main() 
+{
     thread t(backgroundTask);
     t.detach(); // Let it run independently
     this_thread::sleep_for(chrono::seconds(1));
