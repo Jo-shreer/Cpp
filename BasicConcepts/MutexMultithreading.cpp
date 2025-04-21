@@ -97,16 +97,17 @@ int main()
 }
 
 /*********************************Race condition**************************/
-Race Condition
+/*Race Condition
 A race condition happens when two or more threads access shared data at the same time, 
 and the final result depends on the timing of how the threads run.
+Use mutexes or atomic variables
+*/
     
 #include <iostream>
 #include <thread>
 using namespace std;
 
 int counter = 0;
-
 void increment() 
 {
     for (int i = 0; i < 1000; ++i) 
