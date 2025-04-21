@@ -28,10 +28,10 @@ These O2,O3,Ofast flags control the level of optimization the compiler applies d
 Here's what each of them does in GCC/g++:
 Flag	  Optimization Level	             Safe	     Fast   	May Break Standards
 -O0	    No optimization (default)	       ✅	       🚫	         ❌
--O1	    Basic optimization	             ✅	       ✅	         ❌
+-O1	    Basic optimization	               ✅	       ✅	         ❌
 -O2	    Balanced, safe optimizations	   ✅	       ✅✅	     ❌
--O3	    Aggressive optimizations	       ✅	       ✅✅✅	   ❌
--Ofast	Max speed (may ignore rules)	   🚫	       🔥🔥🔥	   ✅✅✅ (but risky)
+-O3	    Aggressive optimizations	       ✅	       ✅✅✅	     ❌
+-Ofast	Max speed (may ignore rules)	   🚫	       🔥🔥🔥	     ✅✅✅ (but risky)
 
 g++ -O2 main.cpp -o app       # good balance
 g++ -O3 main.cpp -o app       # aggressive (faster, but bigger)
