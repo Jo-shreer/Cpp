@@ -95,6 +95,51 @@ vector<Entity> entities;
 // SoA - better cache usage
 vector<float> posX, posY, posZ;
 
+// 1. 🧠 Avoid Raw Pointers When Possible
+// C++ gives full memory control, but with great power comes great responsibility.
+❌ Dangerous
+int* ptr = new int(10);
+// ...
+delete ptr;
+
+Use smart pointers (unique_ptr, shared_ptr):
+#include <memory>
+using namespace std;
+unique_ptr<int> ptr = make_unique<int>(10);
+Automatically manages memory. No delete needed.
+
+//2.Buffer Overflows
+//Always validate input and avoid using unsafe C-style functions.
+❌ Unsafe
+char name[10];
+strcpy(name, "This string is too long");
+✅ Safe
+#include <string>
+string name = "Safe string";
+Or, if you must use char[]:
+strncpy(name, input, sizeof(name) - 1);
+name[sizeof(name) - 1] = '\0';
+
+// 3. Use Const and Immutable Data
+// Prefer const for variables and function arguments to reduce unintended modification.
+void print(const string& message) {
+    // message is read-only
+}
+//4. Minimize Scope of Variables
+// Declare variables in the smallest possible scope to avoid misuse.
+for (int i = 0; i < n; ++i) {
+    int temp = arr[i];
+    // Use temp only here
+}
+
+//Checkpoint	Status
+Avoid raw new/delete	✅ Use smart pointers
+No buffer overflows	    ✅ Use bounds-safe containers
+No dangerous functions (gets)	✅ Modern C++ alternatives
+Input validation	            ✅ Always sanitize inputs
+Avoid undefined behavior	    ✅ Check with tools
+Thread safety	                ✅ Use mutex/locks
+
 
 
 
