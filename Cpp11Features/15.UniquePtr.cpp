@@ -1,4 +1,65 @@
 #include <iostream>
+
+class UniqueIntPtr
+{
+private:
+    int* ptr;
+public:
+    // Constructor
+    explicit UniqueIntPtr(int* p = nullptr) : ptr(p) {}
+
+    // Delete copy constructor and copy assignment
+    UniqueIntPtr(const UniqueIntPtr&) = delete;
+    UniqueIntPtr& operator=(const UniqueIntPtr&) = delete;
+
+    // Move constructor
+    UniqueIntPtr(UniqueIntPtr&& other) noexcept {
+        ptr = other.ptr;
+        other.ptr = nullptr;
+    }
+    // Move assignment
+    UniqueIntPtr& operator=(UniqueIntPtr&& other) noexcept {
+        if (this != &other) {
+            delete ptr;
+            ptr = other.ptr;
+            other.ptr = nullptr;
+        }
+        return *this;
+    }
+    // Destructor
+    ~UniqueIntPtr() {
+        delete ptr;
+    }
+
+    // Dereference operators
+    int& operator*() const { return *ptr; }
+    int* operator->() const { return ptr; }
+
+    // Get raw pointer
+    int* get() const { return ptr; }
+
+    // Release ownership
+    int* release() {
+        int* temp = ptr;
+        ptr = nullptr;
+        return temp;
+    }
+
+    // Reset the pointer
+    void reset(int* p = nullptr) {
+        delete ptr;
+        ptr = p;
+    }
+};
+
+
+
+
+
+
+/***************************
+
+#include <iostream>
 #include <utility> // For std::move
 
 template <typename T>
