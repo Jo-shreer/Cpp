@@ -12,17 +12,17 @@ class LinkedList
 	public:
   LinkedList() : head(nullptr) {}
   void insertAtEnd(int val) 
-	{
+  {
       Node* newNode = new Node(val);  
       if (head == nullptr) 
-			{
+      {
          head = newNode;  
       } 
-				else
-				{
+	else
+       {
           Node* temp = head;
           while (temp->next != nullptr) 
-					{  
+	  {  
                temp = temp->next;
           }
           temp->next = newNode;  
@@ -30,28 +30,28 @@ class LinkedList
     }
 
     void display() const 
-		{
+    {
         if (head == nullptr) 
-				{
+	{
             std::cout << "List is empty!" << std::endl;
             return;
         }
         Node* temp = head;
         while (temp != nullptr) 
-				{
+	{
             std::cout << temp->data << " -> ";
             temp = temp->next;
         }
         std::cout << "nullptr" << std::endl;  
     }
     void reverse() 
-		{
+    {
         Node* prev = nullptr;  
         Node* current = head;  
         Node* next = nullptr;   
 
         while (current != nullptr) 
-				{
+	{
             next = current->next;  
             current->next = prev;  
             prev = current;        
@@ -60,28 +60,28 @@ class LinkedList
         head = prev;
     }
     ~LinkedList() 
-		{
+     {
         while (head != nullptr) 
-				{
+	{
             deleteAtEnd();
         }
     }
 
     void deleteAtEnd() 
-		{
+    {
         if (head == nullptr) 
-				{  
+	{  
             return;
         }
         if (head->next == nullptr) 
-				{ 
+        { 
             delete head;  
             head = nullptr;
             return;
         }
         Node* temp = head;
         while (temp->next != nullptr && temp->next->next != nullptr) 
-				{			
+	{			
             temp = temp->next;
         }
         Node* lastNode = temp->next;
