@@ -14,3 +14,7 @@ module_init(hello_init);
 module_exit(hello_exit);
 
 MODULE_LICENSE("GPL");
+
+
+//Compile it and load with insmod,
+//remove with rmmod, check logs with dmesg.
