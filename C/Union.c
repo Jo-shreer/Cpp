@@ -1,6 +1,8 @@
 /*
 A union is a collection of variables of different data types stored in the same memory location, 
 meaning only one member can hold a value at any given time.
+In a union, all members share the same memory location. 
+The size of a union equals the size of its largest member. Only one member can be used at a time.
 */
 
 #include <stdio.h>
