@@ -19,7 +19,7 @@ $(TARGET): $(OBJ)
 	$(CC) $(OBJ) -o $(TARGET)
 
 # Rule to compile .c files into .o files
-%.o: %.c $(DEPS)
+%.o: %.c $(DEPS)       # specifies that object files depend on the util.h header file.
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Rule to clean up the generated files
