@@ -1,0 +1,30 @@
+# Compiler and compiler flags
+CC = gcc
+CFLAGS = -Wall -g
+
+# Source files
+SRC = main.c util.c
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Header files
+DEPS = util.h
+
+# Output file (executable)
+TARGET = my_program
+
+# Rule to build the target (executable)
+$(TARGET): $(OBJ)
+	$(CC) $(OBJ) -o $(TARGET)
+
+# Rule to compile .c files into .o files
+%.o: %.c $(DEPS)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Rule to clean up the generated files
+clean:
+	rm -f $(OBJ) $(TARGET)
+
+# Phony targets (not actual files)
+.PHONY: clean
