@@ -2,11 +2,13 @@
 using namespace std;
 
 // Node structure
-struct Node {
+struct Node
+{
     int data;
     Node* next;
 
-    Node(int val) {
+    Node(int val) 
+    {
         data = val;
         next = nullptr;
     }
@@ -33,16 +35,19 @@ bool hasLoop(Node* head)
 }
 
 // Helper function to create a loop for testing
-void createLoop(Node* head, int pos) {
+void createLoop(Node* head, int pos) 
+{
     if (pos == -1) return;
 
     Node* loopNode = head;
-    for (int i = 0; i < pos; ++i) {
+    for (int i = 0; i < pos; ++i) 
+    {
         loopNode = loopNode->next;
     }
 
     Node* tail = head;
-    while (tail->next != nullptr) {
+    while (tail->next != nullptr) 
+    {
         tail = tail->next;
     }
 
