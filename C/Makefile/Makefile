@@ -1,13 +1,14 @@
 # Compiler and compiler flags
 CC = gcc
 CFLAGS = -Wall -g  # -Wall enables all warnings, -g for debugging symbols
+# command to run makefile is make
 
 # Source files and object files
 SRC = main.c util.c  #List of source files. 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o) #This replaces the .c extension with .o to create object files from the source files.
 
 # Output file (executable)
-TARGET = my_program
+TARGET = my_program  #The name of the output file.
 
 # Rule to build the target (the executable)
 $(TARGET): $(OBJ)
@@ -22,4 +23,4 @@ clean:
 	rm -f $(OBJ) $(TARGET)
 
 # Phony targets (not actual files)
-.PHONY: clean
+.PHONY: clean  #This tells make that clean is not a real file and prevents make from trying to build a file named clean.
