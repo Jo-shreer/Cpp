@@ -24,4 +24,5 @@ clean:
 	rm -f $(OBJ) $(TARGET)
 
 # Phony targets (not actual files)
-.PHONY: clean  #This tells make that clean is not a real file and prevents make from trying to build a file named clean.
+.PHONY: clean  #This tells make that clean is not a real file and 
+               #prevents make from trying to build a file named clean.
