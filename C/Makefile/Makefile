@@ -15,7 +15,8 @@ $(TARGET): $(OBJ)
 	$(CC) $(OBJ) -o $(TARGET)
 
 # Rule to compile .c files into .o files
-%.o: %.c # %.o: %.c: This is a pattern rule for compiling .c files into .o files. $< refers to the source file (%.c), and $@ refers to the target file (%.o).
+%.o: %.c         # %.o: %.c: This is a pattern rule for compiling .c files into .o files.
+                 #$< refers to the source file (%.c), and $@ refers to the target file (%.o).
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Rule to clean up the generated files (object files and executable)
