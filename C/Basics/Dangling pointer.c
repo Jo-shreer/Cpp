@@ -10,3 +10,18 @@ int main() {
     printf("%d\n", *ptr);  // ⚠️ Undefined behavior: ptr is dangling
     return 0;
 }
+
+
+// OR
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+    int *ptr = (int *)malloc(sizeof(int));
+    *ptr = 100;
+    free(ptr);     // memory freed
+    printf("%d\n", *ptr);  // ⚠️ Dangling pointer access
+    return 0;
+}
