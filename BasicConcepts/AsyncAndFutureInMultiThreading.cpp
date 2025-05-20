@@ -1,5 +1,7 @@
 /*
-std::async runs a function asynchronously (potentially in a new thread), and returns a std::future object, which you can use to get the result of that function once it completes.
+std::async runs a function asynchronously (potentially in a new thread), 
+and returns a std::future object, which you can use to get the result of that 
+function once it completes.
 */
 
 #include <iostream>
