@@ -2,7 +2,8 @@
 A mutex (short for mutual exclusion) is a synchronization
 primitive in C++ used to protect shared resources 
 from being accessed concurrently by multiple threads. 
-When multiple threads access the same data, a mutex ensures that only one thread can access that data at a time, 
+When multiple threads access the same data, 
+a mutex ensures that only one thread can access that data at a time, 
 preventing race conditions.
 Locking and Unlocking:
 Locking a mutex: A thread locks the mutex before accessing the shared resource.
