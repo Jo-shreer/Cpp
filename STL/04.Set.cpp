@@ -1,3 +1,11 @@
+/*
+set 
+1. stores unique elements.
+2. Elements are stored in sorted order (by default using operator<).
+3. Implemented as a balanced binary search tree (usually a Red-Black tree).
+4. Provides efficient lookup, insertion, and removal with O(log n) time complexity.
+5. associative container.
+*/    
 #include <iostream>
 #include <set>
 
