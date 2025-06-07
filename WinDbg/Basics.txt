@@ -1,0 +1,44 @@
+Symbol files (very important for meaningful debugging):
+Use Microsoft's public symbol server:
+  -srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
+
+Example 1: Analyze a Crash Dump
+Open WinDbg Preview
+Go to File → Open dump file (Ctrl+D)
+Load a .dmp file (like from C:\Windows\Minidump)
+Set the symbol path:
+    -srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
+arduino
+Copy
+Edit
+.sympath srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
+.reload
+!analyze -v
+  -This performs an in-depth analysis and usually points to the likely culprit (driver, module, etc.).
+
+Example 2: Attach to a Running Process
+Go to File → Attach to Process
+Select the process you want (like notepad.exe)
+Run commands like:
+~* k → Show stack traces for all threads
+lm → List loaded modules
+bp → Set a breakpoint (e.g. bp kernel32!CreateFileW)
+g → Go (continue execution)
+kb → Backtrace with function parameters
+
+Commands
+.sympath	Set the symbol path
+.reload	Reload symbols
+!analyze -v	Crash dump analysis
+k / kb / kv	Stack trace
+lm	Loaded modules
+x	Examine symbols (e.g., x kernel32!*CreateFile*)
+bp	Set a breakpoint
+bl	List breakpoints
+bc	Clear breakpoints
+g	Go (continue execution)
+t	Step into
+p	Step over
+~	Thread-related commands
+
+
