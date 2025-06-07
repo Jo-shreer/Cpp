@@ -49,8 +49,12 @@ The same person can have multiple phone numbers (e.g., home, work, mobile).
   
 
 Conclusion:
-multimap -  is useful when you need to store multiple values for the same key and need to maintain the order of elements.
-unordered_map -  on the other hand, provides faster lookups but does not allow duplicate keys and does not maintain any order for the elements.
+multimap -  
+is useful when you need to store multiple values for the same key 
+and need to maintain the order of elements.
+unordered_map -  
+on the other hand, provides faster lookups 
+but does not allow duplicate keys and does not maintain any order for the elements.
 
 */
 
