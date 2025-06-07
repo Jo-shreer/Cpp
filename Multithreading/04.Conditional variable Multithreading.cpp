@@ -1,7 +1,9 @@
-/*A condition variable is a synchronization primitive that allows threads to wait (block) until notified by another thread 
-that some condition is true. It helps when one thread depends on another to complete a task or update shared data.
-Why Use a Condition Variable?
+/*A condition variable is a synchronization primitive that allows 
+threads to wait (block) until notified by another thread 
+that some condition is true. 
+It helps when one thread depends on another to complete a task or update shared data.
 
+Why Use a Condition Variable?
 Imagine a producer-consumer scenario:
 The producer adds data to a buffer.
 The consumer waits until there's data in the buffer before processing it.
@@ -44,8 +46,10 @@ void producer()
     }
 }
 
-void consumer() {
-    while (true) {
+void consumer() 
+{
+    while (true) 
+    {
         unique_lock<mutex> lock(mtx);
         cv.wait(lock, []() { return !buffer.empty(); });
 
