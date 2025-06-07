@@ -2,6 +2,13 @@
 Unlike a map, which stores keys in a sorted order, an unordered_map stores keys in an unsorted order, and it provides 
 average constant-time complexity (O(1)) for lookups, insertions, and deletions. It is implemented using hash tables internally.
 
+unordered_map
+1. Stores key-value pairs with unique keys.
+2. Also uses a hash table internally.
+3. Average time complexity for lookup, insertion, and deletion is O(1).
+4. Keys are not ordered.
+
+Great for fast key-based lookup, like dictionaries in other languages.
 Important Points:
 
 Return Value:
