@@ -6,6 +6,59 @@ like dynamically allocated memory, file handles, or other system resources.*/
 
 class MyClass 
 {
+    private:
+    int* ptr;
+
+    public:
+    MyClass(int value) 
+    {
+        ptr = new int(value);
+    }
+
+    // Destructor
+    ~MyClass() 
+    {
+        delete ptr;
+    }
+
+    // Copy Constructor
+    MyClass(const MyClass& other) 
+   {
+        ptr = new int(*other.ptr); // Deep copy
+        std::cout << "Copy Constructor\n";
+    }
+
+    // Move Constructor
+    MyClass(MyClass&& other) noexcept 
+    {
+        ptr = other.ptr;           // Transfer ownership
+        other.ptr = nullptr;       // Nullify source
+        std::cout << "Move Constructor\n";
+    }
+
+    // Print value
+    void print() const 
+    {
+        if (ptr)
+            std::cout << "Value: " << *ptr << std::endl;
+        else
+            std::cout << "Null pointer\n";
+    }
+};
+
+int main() 
+{
+    MyClass a(10);      // Constructor
+    MyClass b = std::move(a);  // Move Constructor
+    a.print();  // Should print "Null pointer"
+    b.print();  // Should print "Value: 10"
+}
+
+*************************************************************************************************************
+#include <iostream>
+
+class MyClass 
+{
 private:
     int* data; 
 
