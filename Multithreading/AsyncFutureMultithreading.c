@@ -17,21 +17,17 @@ int slow_add(int a, int b)
 
 int main() 
 {
-    cout << "Launching async task...\n";
-  
-    // Launch async task
     future<int> result = async(slow_add, 5, 7);
-  
+    
     cout << "Doing other work while waiting...\n";
-
+    
     // Block until result is ready, then get it
+    
     int sum = result.get();
     cout << "Result from async: " << sum << endl;
-
     return 0;
 }
 
 /*output*/
-Launching async task...
 Doing other work while waiting...
 Result from async: 12
