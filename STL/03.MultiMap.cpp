@@ -3,6 +3,12 @@ The key feature of a multimap is that it allows multiple elements to have the sa
 This makes it different from a map, which stores only unique keys. 
 In a multimap, each key can map to one or more values, and the elements are always stored in sorted order based on the keys.
 
+Multimap
+1. Allows multiple elements to have the same key.
+2. Elements are stored in sorted order by key (usually by operator<).
+3. Internally implemented as a balanced binary search tree (typically Red-Black tree).
+4. Lookup, insertion, and deletion operations have O(log n) complexity.
+
 Key Characteristics of multimap:
 Allows Duplicate Keys: A multimap allows multiple pairs with the same key, unlike a map where keys are unique.
 Ordered by Keys: The elements are sorted by their keys using the comparison function (default is operator<).
