@@ -1,3 +1,11 @@
+/* 
+1. duplicate keys are not allowed.
+2. Elements are stored sorted by key (default sorting uses operator<).
+3. Implemented as a balanced binary search tree (usually a Red-Black tree).
+4. Supports efficient lookup, insertion, and deletion with O(log n) complexity.
+5. map is an associative container storing key-value pairs.
+*/
+
 #include <iostream>
 #include <map>
 
