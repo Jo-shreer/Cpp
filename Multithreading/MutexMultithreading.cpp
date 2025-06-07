@@ -1,15 +1,16 @@
 /*
-A mutex (short for mutual exclusion) is a synchronization
+1. A mutex (short for mutual exclusion) is a synchronization
 primitive in C++ used to protect shared resources 
 from being accessed concurrently by multiple threads. 
-When multiple threads access the same data, 
+2. When multiple threads access the same data, 
 a mutex ensures that only one thread can access that data at a time, 
 preventing race conditions.
+
 Locking and Unlocking:
 Locking a mutex: A thread locks the mutex before accessing the shared resource.
 Unlocking a mutex: After finishing its work, 
-the thread unlocks the mutex, 
-allowing another thread to lock it and access the resource.
+the thread unlocks the mutex, allowing another thread to lock it and access the resource.
+
 By using a mutex, you ensure that shared data is protected 
 from being modified simultaneously by multiple threads, 
 which could lead to inconsistent or unpredictable results.
@@ -48,10 +49,42 @@ limited time (timed_mutex) or
 attempt to lock without blocking (try_mutex).
 */
 
+**********************************Race condition*************************************
+/*Race Condition
+A race condition happens when two or more threads access shared data at the same time, 
+and the final result depends on the timing of how the threads run.
+
+Use mutexes or atomic variables
+*/
+    
+#include <iostream>
+#include <thread>
+using namespace std;
+
+int counter = 0;
+void increment() 
+{
+    for (int i = 0; i < 1000; ++i) 
+    {
+        ++counter;  // Not thread-safe
+    }
+}
+
+int main() 
+{
+    thread t1(increment);
+    thread t2(increment);
+    t1.join();
+    t2.join();
+    cout << "Counter: " << counter << endl;  // Might be < 2000
+    return 0;
+}
+
+*********************************Use Mutex**************************************
 #include <iostream>
 #include <thread>
 #include <mutex>
-using namespace std;      // Using the std namespace
+using namespace std; 
 mutex mtx;                // Create a mutex
 
 void print_numbers(int id) 
@@ -60,7 +93,8 @@ void print_numbers(int id)
     cout << "Thread " << id << " is accessing shared resource\n";
 }
 
-int main() {
+int main() 
+{
     thread t1(print_numbers, 1);
     thread t2(print_numbers, 2);
     t1.join();
@@ -68,8 +102,8 @@ int main() {
     return 0;
 }
 
-/*
-deadlock occurs when two or more threads are waiting on each other to release resources, 
+/* Deadlock 
+occurs when two or more threads are waiting on each other to release resources, 
 and none of them can proceed — like a circular wait.
 Fix	 - Use consistent lock order, std::lock
 Simple Code Example (BAD — Causes Deadlock):
@@ -105,32 +139,3 @@ int main()
     return 0;
 }
 
-/*********************************Race condition**************************/
-/*Race Condition
-A race condition happens when two or more threads access shared data at the same time, 
-and the final result depends on the timing of how the threads run.
-Use mutexes or atomic variables
-*/
-    
-#include <iostream>
-#include <thread>
-using namespace std;
-
-int counter = 0;
-void increment() 
-{
-    for (int i = 0; i < 1000; ++i) 
-    {
-        ++counter;  // Not thread-safe
-    }
-}
-
-int main() 
-{
-    thread t1(increment);
-    thread t2(increment);
-    t1.join();
-    t2.join();
-    cout << "Counter: " << counter << endl;  // Might be < 2000
-    return 0;
-}
