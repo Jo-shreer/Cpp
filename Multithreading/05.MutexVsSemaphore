@@ -1,0 +1,19 @@
+/*
+Mutex
+Used when only one thread can access the resource at a time.
+Prevents race conditions by locking.
+Thread that locks must unlock.
+Common APIs: std::mutex in C++, pthread_mutex_t in POSIX.
+
+Semaphore
+Can allow multiple threads to access a limited number of resources simultaneously.
+Has an internal counter representing available resources.
+wait() (or P() operation) decrements the counter and may block if zero.
+signal() (or V() operation) increments the counter, potentially waking blocked threads.
+Useful for managing resource pools, producer-consumer problems.
+
+Example Analogy
+Mutex: Like a key to a single bathroom — only one person at a time.
+Semaphore: Like tickets to a parking lot with limited spots — 
+multiple cars can enter, but only as many as spots.
+*/
