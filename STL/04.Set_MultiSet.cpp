@@ -1,3 +1,12 @@
+/*
+Multiset 
+1. It allows duplicate elements.
+2. Stores multiple elements in sorted order.
+3. Implemented as a balanced binary search tree (usually a Red-Black tree).
+4. Provides efficient lookup, insertion, and removal with O(log n) complexity.
+5. Associative container.
+*/ 
+
 #include <iostream>
 #include <set>
 
