@@ -12,7 +12,7 @@ private:
 public:
     MyClass(int val) 
     {
-        data = new int[val]; 
+        data = new int(val); 
         std::cout << "Constructor: Allocating memory of size " << size << std::endl;
     }
     MyClass(MyClass&& other) noexcept : data(other.data) 
