@@ -18,7 +18,7 @@ int main()
     for(int i = 0; i < size; i++)
     {
         if(hash[i] > maj)
-		{
+	{
            cout << endl;
            cout << "maj element is:" << i << endl;
         }
