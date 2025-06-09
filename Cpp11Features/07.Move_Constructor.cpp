@@ -1,5 +1,8 @@
-/*A move constructor in C++ is a special constructor that allows an object to "steal" resources from a temporary object (an rvalue). 
-This avoids deep copying of resources, improving performance,especially when dealing with large objects or resources 
+/* 
+Move constructor in C++ is a special constructor 
+1. Allows an object to "steal" resources from a temporary object (an rvalue). 
+2. This avoids deep copying of resources, improving performance,
+especially when dealing with large objects or resources 
 like dynamically allocated memory, file handles, or other system resources.*/
 
 #include <iostream>
