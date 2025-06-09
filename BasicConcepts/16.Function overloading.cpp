@@ -5,6 +5,13 @@ The compiler chooses the correct function based on:
 Number of parameters
 Types of parameters
 
+Different return type only	    ❌ Not overloading 
+Different scopes (name hiding)	❌ Not overloading 
+Different const on return type	❌ Not overloading 
+Different exception specifiers	❌ Not overloading 
+Template specialization	        ❌ Not counted as overload in 
+                                   normal overload resolution
+
 Why useful?
 You can provide different behaviors for the same conceptual operation.
 Makes code easier to read and more flexible 
