@@ -8,6 +8,25 @@ Types of parameters
 Why useful?
 You can provide different behaviors for the same conceptual operation.
 Makes code easier to read and more flexible 
+
+These cannot be overloaded at all:
+:: (Scope resolution)
+. (Dot operator)
+.* (Pointer-to-member)
+?: (Ternary conditional)
+
+These are operators, but they work on compile-time language features, 
+so overloading makes no sense:
+sizeof
+typeid
+alignof
+Cast operators (static_cast, dynamic_cast, reinterpret_cast, const_cast)
+noexcept
+
+new and delete operators can be overloaded globally or per class, 
+but placement new syntax (void* operator new(size_t, void*)) 
+is not overloadable by the user.
+
 */
 
 #include <iostream>
