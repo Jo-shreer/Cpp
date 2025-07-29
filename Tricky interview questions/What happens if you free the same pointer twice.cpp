@@ -7,12 +7,11 @@
 int main() 
 {
     int *p = (int *)malloc(sizeof(int));
-
-    if (p == NULL) {
+    if (p == NULL) 
+    {
         printf("Memory allocation failed\n");
         return 1;
     }
-
     *p = 42;
     printf("Value: %d\n", *p);
 
@@ -23,3 +22,11 @@ int main()
 
     return 0;
 }
+
+
+
+op
+Value: 42
+*** Error in `./a.out`: double free or corruption (fasttop): 0x0000000000602010 ***
+Aborted (core dumped)
+    
