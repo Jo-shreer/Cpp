@@ -1,6 +1,8 @@
 /*In C++, an unordered_map is a standard library container that stores key-value pairs. 
-Unlike a map, which stores keys in a sorted order, an unordered_map stores keys in an unsorted order, and it provides 
-average constant-time complexity (O(1)) for lookups, insertions, and deletions. It is implemented using hash tables internally.
+Unlike a map, which stores keys in a sorted order, 
+an unordered_map stores keys in an unsorted order, and it provides 
+average constant-time complexity (O(1)) for lookups, 
+insertions, and deletions. It is implemented using hash tables internally.
 
 unordered_map
 0. Keys are not ordered.
