@@ -5,11 +5,10 @@
 class SharedPtr 
 {
     private:
-    int* ptr;          // Raw pointer to int
-    int* ref_count;    // Pointer to reference count
+    int *ptr;          // Raw pointer to int
+    int *ref_count;    // Pointer to reference count
 
     public:
-    // Constructor
     explicit SharedPtr(int* p = nullptr) : ptr(p), ref_count(new int(1)) 
     {
         // std::cout << "SharedPtr constructed\n";
