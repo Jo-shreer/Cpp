@@ -15,7 +15,7 @@ class SharedPtr
     }
 
     // Copy constructor
-    SharedPtr(const SharedPtr& other) 
+    SharedPtr(const SharedPtr &other) 
     {
         ptr = other.ptr;
         ref_count = other.ref_count;
