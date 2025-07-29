@@ -81,27 +81,62 @@ int main()
 }
 
 *********************************Use Mutex**************************************
+
+
+/*
+✅ Mutex Example in C++ (with using namespace std)
+
+- std::mutex ensures only one thread accesses shared data at a time.
+- Prevents race conditions when multiple threads modify the same variable.
+*/
+
 #include <iostream>
 #include <thread>
 #include <mutex>
-using namespace std; 
-mutex mtx;                // Create a mutex
 
-void print_numbers(int id) 
+using namespace std;
+
+int counter = 0;   // shared resource
+mutex mtx;         // mutex for synchronization
+
+void increment(int id) 
 {
-    lock_guard<mutex> lock(mtx);  // Lock the mutex automatically
-    cout << "Thread " << id << " is accessing shared resource\n";
+    for (int i = 0; i < 5; i++) 
+    {
+        mtx.lock();   // lock before accessing shared resource
+        ++counter;
+        cout << "Thread " << id << " incremented counter to " << counter << endl;
+        mtx.unlock(); // unlock after use
+    }
 }
 
 int main() 
 {
-    thread t1(print_numbers, 1);
-    thread t2(print_numbers, 2);
+    thread t1(increment, 1);
+    thread t2(increment, 2);
+
     t1.join();
     t2.join();
+
+    cout << "Final Counter Value: " << counter << endl;
     return 0;
 }
 
+/*
+🖨️ SAMPLE OUTPUT (order may vary because of concurrency):
+Thread 1 incremented counter to 1
+Thread 2 incremented counter to 2
+Thread 1 incremented counter to 3
+Thread 2 incremented counter to 4
+...
+Final Counter Value: 10
+*/
+
+
+
+
+
+    
 /* Deadlock 
 occurs when two or more threads are waiting on each other to release resources, 
 and none of them can proceed — like a circular wait.
