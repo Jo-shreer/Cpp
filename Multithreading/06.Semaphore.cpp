@@ -6,41 +6,59 @@ C++20 introduced semaphores in the <semaphore> header
 */
 
 **************************Counting Semaphore***************************
-  #include <iostream>
+#include <iostream>
 #include <thread>
 #include <semaphore>
-#include <vector>
+#include <chrono>
 
 using namespace std;
 
-std::counting_semaphore<3> semaphore(3); // max 3 threads can enter concurrently
+// Allow max 2 threads to access resource at a time
+counting_semaphore<2> semaphore(2);
 
-void task(int id) 
+void access_resource(int id) 
 {
-    semaphore.acquire();  // wait / decrement
-    cout << "Thread " << id << " is inside critical section.\n";
-    
-  // Simulate work
-    this_thread::sleep_for(chrono::seconds(1));
-  
-    cout << "Thread " << id << " leaving critical section.\n";
-    semaphore.release();  // signal / increment
+    cout << "Thread " << id << " is waiting...\n";
+    semaphore.acquire();  // wait for permit
+
+    cout << "Thread " << id << " is accessing resource\n";
+    this_thread::sleep_for(chrono::seconds(2)); // simulate work
+
+    cout << "Thread " << id << " is done\n";
+    semaphore.release();  // release permit
 }
 
 int main() 
 {
-    vector<thread> threads;
-    // Launch 6 threads
-    for (int i = 0; i < 6; ++i) 
-    {
-        threads.emplace_back(task, i);
-    }
-    for (auto& t : threads) 
-    {
-        t.join();
-    }
+    // Create threads in a simple loop
+    thread t1(access_resource, 1);
+    thread t2(access_resource, 2);
+    thread t3(access_resource, 3);
+    thread t4(access_resource, 4);
+
+    // Join threads
+    t1.join();
+    t2.join();
+    t3.join();
+    t4.join();
+
+    cout << "All threads finished\n";
     return 0;
 }
+
+/*
+🖨️ SAMPLE OUTPUT:
+Thread 1 is waiting...
+Thread 1 is accessing resource
+Thread 2 is waiting...
+Thread 2 is accessing resource
+Thread 3 is waiting...
+Thread 4 is waiting...
+Thread 1 is done
+Thread 3 is accessing resource
+...
+*/
+
 /*
 What happens here?
 The semaphore is initialized with a count of 3.
