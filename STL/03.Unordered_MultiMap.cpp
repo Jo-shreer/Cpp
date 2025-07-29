@@ -1,7 +1,8 @@
 /*
 unordered_multimap 
 1. Duplicates Key allowed - It allows multiple elements with the same key.
-2. Elements are stored in buckets using a hash function, so no particular order is guaranteed.
+2. Elements are stored in buckets using a hash function, 
+   so no particular order is guaranteed.
 3. Provides fast average O(1) time complexity for insertion, lookup, and deletion.
 4. Internally implemented as a hash table
 5. It is an unordered associative container that stores key-value pairs.
