@@ -65,7 +65,7 @@ class MessageConsumer : public Consumer
     public:
     MessageConsumer(const string& consumerName) : name(consumerName) {}
 
-    void update(const string& message) override 
+    void notification(const string& message) override 
     {
         cout << name << " received message: " << message << endl;
     }
