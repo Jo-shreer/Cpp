@@ -5,33 +5,32 @@
 class SharedPtr 
 {
     private:
-    int *ptr;          // Raw pointer to int
-    int *ref_count;    // Pointer to reference count
+    int* ptr;           // Pointer to the managed object
+    int* ref_count;     // Pointer to reference count
 
     void release() 
-     {
+    {
         --(*ref_count);
         if (*ref_count == 0) 
         {
+            std::cout << "Deleting managed object\n";
             delete ptr;
             delete ref_count;
-            // std::cout << "SharedPtr destroyed\n";
         }
-     }
+    }
 
     public:
     explicit SharedPtr(int* p = nullptr) : ptr(p), ref_count(new int(1)) 
-    {
-        // std::cout << "SharedPtr constructed\n";
+   {
+        // Constructor
     }
 
     // Copy constructor
-    SharedPtr(const SharedPtr &other) 
+    SharedPtr(const SharedPtr& other) 
     {
         ptr = other.ptr;
         ref_count = other.ref_count;
         ++(*ref_count);
-        // std::cout << "SharedPtr copied, count = " << *ref_count << "\n";
     }
 
     // Assignment operator
@@ -55,29 +54,28 @@ class SharedPtr
 
     // Dereference operator
     int& operator*() const { return *ptr; }
-    int* operator->() const { return ptr; }
 
-    // Get raw pointer
-    int* get() const { return ptr; }
-
-    // Get current use count
+    // Use count getter
     int use_count() const { return *ref_count; }
-    
 };
 
 int main() 
 {
     SharedPtr sp1(new int(42));
-    {
-        SharedPtr sp2 = sp1;
-        std::cout << "Value: " << *sp2 << "\n";                   // 42
-        std::cout << "Use count: " << sp1.use_count() << "\n";    // 2
-    } // sp2 destroyed, count decremented
+    SharedPtr sp2 = sp1;  // Copy constructor called, ref_count = 2
 
-    std::cout << "Use count after sp2 destroyed: " << sp1.use_count() << "\n"; // 1
-    std::cout << "Value: " << *sp1 << "\n";             // 42
+    std::cout << "Value via sp1: " << *sp1 << "\n";
+    std::cout << "Value via sp2: " << *sp2 << "\n";
+    std::cout << "Use count (sp1): " << sp1.use_count() << "\n";
+    std::cout << "Use count (sp2): " << sp2.use_count() << "\n";
+
+    // sp2 and sp1 will be destroyed automatically here, 
+    // ref_count will decrement and managed object deleted when count hits zero
     return 0;
 }
+
+
+
 
 o/p
 Value: 42
