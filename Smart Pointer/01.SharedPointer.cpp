@@ -54,7 +54,10 @@ class SharedPtr
 
     // Dereference operator
     int& operator*() const { return *ptr; }
-
+    
+    // Return raw pointer
+    int* get() const { return ptr; }
+    
     // Use count getter
     int use_count() const { return *ref_count; }
 };
