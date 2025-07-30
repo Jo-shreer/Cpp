@@ -6,26 +6,17 @@ using namespace std;
 class MyClass 
 {
     public:
-    void sayHello() 
-    {
-        cout << "Hello!\n";
-    }
+    void greet() { cout << "Hello!\n"; }
 };
 
 int main() 
 {
     shared_ptr<MyClass> sp = make_shared<MyClass>();
-
-    // Using arrow operator (most common)
-    sp->sayHello();
-
-    // Using dereference operator and dot
-    (*sp).sayHello();
+    MyClass* rawPtr = sp.get();  // get the raw pointer
+    rawPtr->greet();
 
     return 0;
 }
 
-
+op
 Hello!
-Hello!
-  
