@@ -8,6 +8,17 @@ class SharedPtr
     int *ptr;          // Raw pointer to int
     int *ref_count;    // Pointer to reference count
 
+    void release() 
+     {
+        --(*ref_count);
+        if (*ref_count == 0) 
+        {
+            delete ptr;
+            delete ref_count;
+            // std::cout << "SharedPtr destroyed\n";
+        }
+     }
+
     public:
     explicit SharedPtr(int* p = nullptr) : ptr(p), ref_count(new int(1)) 
     {
@@ -51,18 +62,7 @@ class SharedPtr
 
     // Get current use count
     int use_count() const { return *ref_count; }
-
-private:
-    void release() 
-     {
-        --(*ref_count);
-        if (*ref_count == 0) 
-        {
-            delete ptr;
-            delete ref_count;
-            // std::cout << "SharedPtr destroyed\n";
-        }
-    }
+    
 };
 
 int main() 
