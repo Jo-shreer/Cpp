@@ -19,7 +19,7 @@ int findAllSubarraysWithGivenSum(vector < int > & arr, int k)
         	int remove = preSum - k;			// Calculate x-k:
         	cout << "remove:" << remove << endl;
 		
-        	cnt += mpp[remove];					// Add the number of subarrays to be removed:
+        	cnt += mpp[remove];      // Add the number of subarrays to be removed:
         	cout <<"cnt:" << cnt << endl;
         	mpp[preSum] += 1;
 		
