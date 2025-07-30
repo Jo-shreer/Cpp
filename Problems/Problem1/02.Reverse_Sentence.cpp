@@ -7,8 +7,9 @@ using namespace std;
 string reverseSentence(const string &sentence) 
 {
     stringstream ss(sentence);
-    vector<string> words;
     string word;
+    
+    vector<string> words;
     string reversedSentence; 
 
     while (ss >> word)  // Split the sentence into words
