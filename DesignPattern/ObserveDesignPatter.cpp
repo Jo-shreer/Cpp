@@ -45,7 +45,8 @@ class MessageProducer : public Producer
 
     void detach(Consumer* consumer) override 
     {
-        consumers.erase(remove(consumers.begin(), consumers.end(), consumer), consumers.end());
+        consumers.erase(remove(consumers.begin(), 
+       consumers.end(), consumer), consumers.end());
     }
 
     void notifyConsumers() override 
