@@ -59,7 +59,8 @@ void incrementUniqueLock()
 }
 
 // 4. std::recursive_mutex (recursive locking)
-// Allows the same thread to lock multiple times safely (recursive functions).
+// Allows the same thread to lock multiple times safely
+// (recursive functions).
 
 recursive_mutex rmtx;
 void recursiveFunction(int count) 
