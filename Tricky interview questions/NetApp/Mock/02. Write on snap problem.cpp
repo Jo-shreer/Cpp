@@ -1,3 +1,18 @@
+/*
+
+What is Atomicity?
+An operation is atomic if it happens completely or not at all, 
+with no partial effects visible to other threads.
+
+Atomic operations are indivisible and uninterruptible:
+no other thread can see an intermediate or inconsistent 
+state during that operation.
+
+In multithreading, atomicity is crucial to prevent race conditions, 
+where two or more threads try to read/write shared data simultaneously 
+and cause unpredictable results.
+    */
+
 #include <iostream>
 #include <thread>
 #include <vector>
