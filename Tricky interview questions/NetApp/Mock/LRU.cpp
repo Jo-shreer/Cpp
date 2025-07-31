@@ -79,3 +79,59 @@ int main()
     return 0;
 }
 
+
+
+
+
+#include <unordered_map>
+#include <list>
+#include <shared_mutex>
+
+template<typename Key, typename Value>
+class ThreadSafeLRUCache {
+public:
+    ThreadSafeLRUCache(size_t capacity) : capacity_(capacity) {}
+
+    // Get value by key, returns true if found
+    bool get(const Key& key, Value& value) {
+        std::shared_lock lock(mutex_);
+        auto it = cacheItemsMap_.find(key);
+        if (it == cacheItemsMap_.end()) return false;
+
+        // Move the accessed item to front (most recently used)
+        cacheItemsList_.splice(cacheItemsList_.begin(), cacheItemsList_, it->second);
+        value = it->second->second;
+        return true;
+    }
+
+    // Put key-value pair in cache
+    void put(const Key& key, const Value& value) {
+        std::unique_lock lock(mutex_);
+        auto it = cacheItemsMap_.find(key);
+        if (it != cacheItemsMap_.end()) {
+            // Update existing entry and move to front
+            it->second->second = value;
+            cacheItemsList_.splice(cacheItemsList_.begin(), cacheItemsList_, it->second);
+            return;
+        }
+
+        // Insert new entry at front
+        cacheItemsList_.emplace_front(key, value);
+        cacheItemsMap_[key] = cacheItemsList_.begin();
+
+        if (cacheItemsMap_.size() > capacity_) {
+            // Remove least recently used item (back of list)
+            auto last = cacheItemsList_.end(); last--;
+            cacheItemsMap_.erase(last->first);
+            cacheItemsList_.pop_back();
+        }
+    }
+
+private:
+    size_t capacity_;
+    std::list<std::pair<Key, Value>> cacheItemsList_;
+    std::unordered_map<Key, typename std::list<std::pair<Key, Value>>::iterator> cacheItemsMap_;
+    mutable std::shared_mutex mutex_;
+};
+
+
