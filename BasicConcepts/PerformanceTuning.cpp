@@ -26,7 +26,8 @@ v.reserve(10000); // avoid reallocating while pushing
 
 2. Compiler-Level Optimization
 // 1. Use optimization flags when building:
-These O2,O3,Ofast flags control the level of optimization the compiler applies during the build process. 
+These O2,O3,Ofast flags control the level of optimization the compiler 
+applies during the build process. 
 Here's what each of them does in GCC/g++:
 Flag	  Optimization Level	             Safe	     Fast   	May Break Standards
 -O0	    No optimization (default)	       ✅	       🚫	         ❌
